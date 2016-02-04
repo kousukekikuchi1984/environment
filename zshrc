@@ -56,11 +56,17 @@ if [ $UID = 0 ]; then
     SAVEHIST=0
 fi
 
-#setopt hist_ignore_dups # never save the same history
+setopt hist_ignore_dups # never save the same history
 
+# Search backwards and forwards with a pattern
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+bindkey -M vicmd '?' history-incremental-pattern-search-forward
+
+# set up for insert mode too
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M viins '^F' history-incremental-pattern-search-forward
 export LANG=ja_JP.UTF-8
 export LANGUAGE=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
-
 export LSCOLORS=gxfxcxdxbxegedabagacad
 #zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
