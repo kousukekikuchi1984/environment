@@ -7,8 +7,8 @@ if has('vim_starting')
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle'))
+" call neobundle#rc(expand('~/.vim/bundle'))
 NeoBundle 'Shougo/neobundle.vim'
-call neobundle#end()
 " 以下のプラグインをバンドル
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
@@ -49,10 +49,14 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 "NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'Lokaltog/powerline-fontpatcher'
+NeoBundle 'chase/vim-ansible-yaml'
 " javascript
 "
 "NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'https://github.com/aharisu/vim_goshrepl.git'
+NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'}
+call neobundle#end()
 
 " ファイラー関連
 nnoremap <Leader>e :VimFilerExplorer<CR>
@@ -254,7 +258,7 @@ let g:neocomplcache_caching_percent_in_statusline = 1
 let g:neocomplcache_enable_skip_completion = 1
 let g:neocomplcache_skip_input_time = '0.5'
 
-
+" gosh用の設定
 " Ruby用設定
 " :makeでRuby構文チェック
 au FileType ruby setlocal makeprg=ruby\ -c\ %
@@ -363,7 +367,16 @@ function s:GetMarker()
     return res
 endfunction
 command! -nargs=0 GetMarker put=s:GetMarker()
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 
-" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | %!xxd -r | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
