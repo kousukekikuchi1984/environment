@@ -369,8 +369,6 @@ endfunction
 command! -nargs=0 GetMarker put=s:GetMarker()
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
-
-
 augroup BinaryXXD
   autocmd!
   autocmd BufReadPre  *.bin let &binary =1
@@ -380,3 +378,7 @@ augroup BinaryXXD
   autocmd BufWritePost * if &binary | silent %!xxd -g 1
   autocmd BufWritePost * set nomod | endif
 augroup END
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+let g:neosnippet#snippets_directory = '~/.vim/snippets/'
