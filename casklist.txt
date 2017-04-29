@@ -1,0 +1,16 @@
+alfred
+android-studio
+boostnote
+docker
+docker-toolbox
+dropbox
+eagle
+google-chrome
+google-cloud-sdk
+google-drive
+iterm2
+java
+karabiner-elements
+slack
+vagrant
+virtualbox
