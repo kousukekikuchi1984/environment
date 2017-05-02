@@ -70,7 +70,7 @@ set scrolljump=1
 set scrolloff=10
 set secure
 set shiftround
-set shiftwidth=2
+set shiftwidth=4
 set shortmess+=c  " default: shortmess=filnxtToO
 set showfulltag
 set showmatch
@@ -79,12 +79,12 @@ set showtabline=2
 set sidescrolloff=3
 set smartcase
 set smartindent
-set softtabstop=2
+set softtabstop=4
 set splitbelow
 set splitright
 set switchbuf=useopen
 set synmaxcol=0  " 0: unlimited
-set tabstop=2
+set tabstop=4
 set tags=./tags;  " http://d.hatena.ne.jp/thinca/20090723/1248286959
 set termguicolors
 set textwidth=0
@@ -208,7 +208,7 @@ function! GinaConfig()
   call gina#custom#command#option('commit', '-S|--signoff')
   call gina#custom#execute(
         \ '/\%(commit\)',
-        \ 'setlocal colorcolumn=69 expandtab shiftwidth=2 softtabstop=2 tabstop=2 winheight=35',
+        \ 'setlocal colorcolumn=69 expandtab shiftwidth=4 softtabstop=4 tabstop=4 winheight=35',
         \)
   call gina#custom#execute(
         \ '/\%(status\|branch\|ls\|grep\|changes\|tag\)',
@@ -1606,3 +1606,4 @@ tnoremap <nowait><buffer><BS>    <BS>
 tnoremap <silent>jj  <C-\><C-n>
 
 " -------------------------------------------------------------------------------------------------
+
