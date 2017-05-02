@@ -29,6 +29,9 @@ $ cp zshrc ~/.zshrc
 $ cp zpreztorc ~/.zpreztorc
 ``` 
 
+## jshint activation
+```node install -g jshint```
+
 ## nvim setup
 ``` 
 $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
