@@ -31,7 +31,7 @@ $ cp zpreztorc ~/.zpreztorc
 
 ## jshint activation
 ```
-$ node install -g jshint
+$ npm install -g jshint
 $ cp jshintrc ~/.jshintrc
 ```
 
