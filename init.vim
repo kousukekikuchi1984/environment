@@ -1,4 +1,3 @@
-
 let $XDG_RUNTIME_DIR = expand('/run/user/501')
 let $XDG_CACHE_HOME = expand($HOME.'/.cache')
 let $XDG_CONFIG_DIRS = expand('/etc/xdg')
@@ -130,8 +129,7 @@ endif
 " Neovim Configs:
 
 let g:python_host_prog  = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3.'
-
+let g:python3_host_prog = '/usr/local/bin/python3'
 " Terminel settings
 let g:terminal_scrollback_buffer_size = 100000
 let s:num = 0
@@ -367,7 +365,6 @@ if dein#load_state(s:dein_cache)
   call dein#add('rhysd/accelerated-jk', {'on_map': '<Plug>'})
   call dein#add('mbbill/undotree', {'on_cmd': ['UndotreeToggle']})
 
-
   " Debug:
   " call dein#add('critiqjo/lldb.nvim')
   call dein#add('yuratomo/dbg.vim', {'on_cmd': ['Dbg', 'DdgShell']})
@@ -394,6 +391,7 @@ if dein#load_state(s:dein_cache)
   " call dein#add('garyburd/vigor', {'lazy': 1, 'on_ft': 'go'})
   call dein#add('tweekmonster/hl-goimport.vim', {'on_ft': 'go'})
   call dein#add('zchee/vim-go-slide')
+  call dein#add('fatih/vim-go')
 
   "" C Family:
   call dein#add('vim-jp/vim-cpp')
@@ -433,6 +431,7 @@ if dein#load_state(s:dein_cache)
 
   "" Javascript:
   call dein#add('othree/yajs.vim')
+  call dein#add('Shutnik/jshint2.vim')
 
   "" Markdown:
   call dein#add('moorereason/vim-markdownfmt', {'on_ft': 'markdown'})
@@ -456,6 +455,9 @@ if dein#load_state(s:dein_cache)
 
   "" TinyScheme: for macOS sandbox-exec profile .sb filetype
   call dein#add('vim-scripts/vim-niji', {'on_ft': 'scheme'})
+
+  "" Automation: for code validation
+  call dein#add('vim-syntastic/syntastic')
 
   call dein#end()
   call dein#save_state()
@@ -483,7 +485,6 @@ let g:loaded_netrwPlugin        = 1 " $VIMRUNTIME/plugin/netrwPlugin.vim
 let g:loaded_netrwSettings      = 1 " $VIMRUNTIME/autoload/netrwSettings.vim
 let g:loaded_rrhelper           = 1 " $VIMRUNTIME/plugin/rrhelper.vim
 let g:loaded_spellfile_plugin   = 1 " $VIMRUNTIME/plugin/spellfile.vim
-let g:loaded_sql_completion     = 1 " $VIMRUNTIME/autoload/sqlcomplete.vim
 let g:loaded_syntax_completion  = 1 " $VIMRUNTIME/autoload/syntaxcomplete.vim
 let g:loaded_tar                = 1 " $VIMRUNTIME/autoload/tar.vim
 let g:loaded_tarPlugin          = 1 " $VIMRUNTIME/plugin/tarPlugin.vim
@@ -754,6 +755,11 @@ let g:autopep8_disable_show_diff = 1
 let g:impsort_highlight_imported = 1
 let g:impsort_highlight_star_imports = 1
 
+" Javascript:
+let g:syntastic_mode_map = {
+\ "mode" : "active",
+\ "active_filetypes" : ["javascript", "json"],
+\ }
 
 " Rust:
 let g:rustfmt_autosave = 0
@@ -1600,6 +1606,3 @@ tnoremap <nowait><buffer><BS>    <BS>
 tnoremap <silent>jj  <C-\><C-n>
 
 " -------------------------------------------------------------------------------------------------
-" vim:ft=vim:cc=99:fdm=marker
-
-let g:python3_host_prog = '/usr/local/bin/python3'

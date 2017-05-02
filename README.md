@@ -1,6 +1,6 @@
 # Kosuke Kikuchi's Development Environment
 
-## dependencies
+## requirement
 * homebrew
 
 # installation
@@ -29,13 +29,19 @@ $ cp zshrc ~/.zshrc
 $ cp zpreztorc ~/.zpreztorc
 ``` 
 
+## jshint activation
+```
+$ node install -g jshint
+$ cp jshintrc ~/.jshintrc
+```
+
 ## nvim setup
 ``` 
 $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 $ sh ./installer.sh ~/.local/share/dein
 $ cp init.vim ~/.config/nvim/init.vim
 
-# open vim
+# open vim and command
 :call dein#install()
 ```
 
