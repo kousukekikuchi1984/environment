@@ -11,6 +11,7 @@ google-drive
 iterm2
 java
 karabiner-elements
+lastpass
 slack
 vagrant
 virtualbox
