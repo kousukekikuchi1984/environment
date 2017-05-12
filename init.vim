@@ -128,7 +128,6 @@ endif
 " -------------------------------------------------------------------------------------------------
 " Neovim Configs:
 
-let g:python_host_prog  = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 " Terminel settings
 let g:terminal_scrollback_buffer_size = 100000
