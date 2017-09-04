@@ -48,6 +48,4 @@ $ cp init.vim ~/.config/nvim/init.vim
 ## `karabiner-elements` setup
 ```
 $ defaults write NSGlobalDomain KeyRepeat -float 1.1
-$ defaults write NSGlobalDomain InitialKeyRepeat -int 8
-```
-
+$ defaults write NSGlobalDomain InitialKeyRepeat -int 11
